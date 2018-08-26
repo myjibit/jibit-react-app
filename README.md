@@ -1,7 +1,7 @@
 ## Jibit React App
 
 This package setups webpack and react configurations for you. 
-### Featres:
+### Features:
 
  - Webpack development and production configs
  - Support ESLint
