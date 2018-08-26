@@ -1,5 +1,13 @@
 const merge = require('webpack-merge');
+const fs = require('fs');
 const config = require('./webpack.base.babel')('production');
+const paths = require('../paths');
+
+let customConfigs = {};
+
+if (fs.existsSync(paths.resolveApp('webpack.config.js'))) {
+  customConfigs = require(paths.resolveApp('webpack.config.js'));
+}
 
 module.exports = merge(
   config,
@@ -24,4 +32,5 @@ module.exports = merge(
       },
     },
   },
+  customConfigs,
 );

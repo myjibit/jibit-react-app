@@ -1,7 +1,15 @@
 const webpack = require('webpack');
+const fs = require('fs');
 const merge = require('webpack-merge');
+const paths = require('../paths');
 
 const config = require('./webpack.base.babel')('dev');
+
+let customConfigs = {};
+
+if (fs.existsSync(paths.resolveApp('webpack.config.js'))) {
+  customConfigs = require(paths.resolveApp('webpack.config.js'));
+}
 
 module.exports = merge(
   config,
@@ -27,4 +35,5 @@ module.exports = merge(
       new webpack.HotModuleReplacementPlugin(),
     ],
   },
+  customConfigs,
 );
