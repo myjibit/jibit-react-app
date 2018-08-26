@@ -39,19 +39,6 @@ module.exports = (env) => {
       rules: [
         {
           test: /\.jsx?$/,
-          enforce: 'pre',
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: 'eslint-loader',
-              options: {
-                configFile: require.resolve('../../.eslintrc'),
-              },
-            },
-          ],
-        },
-        {
-          test: /\.jsx?$/,
           exclude: /node_modules/,
           use: [
             {

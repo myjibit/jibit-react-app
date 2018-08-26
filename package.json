@@ -1,6 +1,6 @@
 {
   "name": "jibit-react-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "app/index.js",
   "scripts": {
@@ -39,7 +39,6 @@
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-webpack": "^0.10.1",
-    "eslint-loader": "^2.1.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
