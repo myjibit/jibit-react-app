@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const fs = require('fs');
+const argv = require('minimist')(process.argv.slice(2));
 
 const paths = require('../paths');
 
@@ -15,6 +16,8 @@ if (fs.existsSync(paths.resolveApp('.env'))) {
   }).parsed;
 }
 
+const entryFile = argv.entry ? path.join(process.cwd(), argv.entry) : path.join(process.cwd(), 'src/index.js');
+
 const customVars = Object.keys(process.env).filter(name => name.startsWith('JIBIT_APP'));
 
 customVars.map(customVar => envConfigs[customVar] = process.env[customVar]);
@@ -24,7 +27,7 @@ module.exports = (env) => {
   return {
     entry: [
       'babel-polyfill',
-      path.join(process.cwd(), 'src/index.js'),
+      entryFile,
     ],
     target: 'web',
     optimization: {
